@@ -7,6 +7,12 @@
   },
   "scripts": {
     "start": "node app.js",
+    "clean": "rm -r public/bundle || true",
+    "prebuild": "npm run clean",
+    "build": "webpack --progress",
+    "build:watch": "npm run build -- --watch",
+    "lint:js": "eslint . --ignore-pattern public/bundle || true",
+    "lint:css": "stylelint **/**/*.css || true",
     "test": "mocha --reporter spec --timeout 5000"
   },
   "dependencies": {
@@ -56,12 +62,90 @@
     "twilio": "^3.3.0-edge",
     "twit": "^2.2.4",
     "validator": "^5.4.0",
-    "yui": "^3.18.1"
+    "yui": "^3.18.1",
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "css-loader": "^0.23.1",
+    "dom4": "^1.8.3",
+    "domready": "^1.0.8",
+    "exports-loader": "^0.6.3",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "imports-loader": "^0.6.5",
+    "postcss-cssnext": "^2.6.0",
+    "postcss-import": "^8.1.2",
+    "postcss-loader": "^0.9.1",
+    "postcss-reporter": "^1.3.3",
+    "style-loader": "^0.13.1",
+    "svgxuse": "^1.1.17",
+    "webpack": "^1.13.1",
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
-    "supertest": "^1.2.0"
+    "supertest": "^1.2.0",
+    "babel-eslint": "^6.1.0",
+    "eslint": "^2.13.1",
+    "eslint-config-standard": "^5.3.1",
+    "eslint-plugin-promise": "^1.3.2",
+    "eslint-plugin-standard": "^1.3.2",
+    "http-server": "^0.9.0",
+    "stylelint": "^6.7.1",
+    "stylelint-config-standard": "^9.0.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-runtime"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "standard",
+    "rules": {
+      "no-new": 1,
+      "valid-jsdoc": [
+        2,
+        {
+          "requireReturn": false,
+          "prefer": {
+            "return": "returns"
+          }
+        }
+      ]
+    },
+    "globals": {
+      "fetch": false
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "ignoreFiles": "public/bundle/**",
+    "rules": {
+      "at-rule-empty-line-before": [
+        "always",
+        {
+          "except": [
+            "blockless-group",
+            "all-nested"
+          ],
+          "ignore": [
+            "after-comment"
+          ]
+        }
+      ],
+      "font-family-name-quotes": "always-where-recommended",
+      "function-url-quotes": "always",
+      "number-leading-zero": "never",
+      "string-quotes": "single"
+    }
   },
   "engines": {
     "node": "6.1.0"

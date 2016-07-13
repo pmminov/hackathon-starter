@@ -32,7 +32,8 @@ const foursquare = require('node-foursquare')({
  */
 exports.getApi = (req, res) => {
   res.render('api/index', {
-    title: 'API Examples'
+    title: 'API Examples',
+    nav: true
   });
 };
 

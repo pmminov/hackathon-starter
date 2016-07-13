@@ -9,9 +9,11 @@ html
     title #{title} - Hackathon Starter
     link(rel='shortcut icon', href='/favicon.png')
     link(rel='stylesheet', href='/css/main.css')
+    link(rel='stylesheet', href='/css/bundle.css')
 
   body
-    include partials/header
+    if nav
+      include partials/header
 
     .container
       include partials/flash

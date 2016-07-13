@@ -25,7 +25,20 @@ exports.index = (req, res) => {
 }
 
 exports.topic = (req, res) => {
-  res.render('topic', {
-    title: req.params.name
+  const topic = req.params.topic.toLowerCase()
+  Story.find({ topic: topic }, (err, stories) => {
+    if (err) return console.log(err)
+    const cards = []
+    stories.forEach(function (story) {
+      var card = {
+        title: story.title,
+        text: story.description
+      }
+      cards.push(card)
+    }, this)
+    res.render('topic', {
+      title: 'Topic',
+      cards
+    })
   })
 }

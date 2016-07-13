@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+  .page-header
+    h2
+      i.fa.fa-building-o
+      | News Corp AU API
+  //
+    .btn-group.btn-group-justified
+      a.btn.btn-primary(href='http://developer.nytimes.com/page', target='_blank')
+        i.fa.fa-check-square-o
+        | Overview
+      a.btn.btn-primary(href='http://prototype.nytimes.com/gst/apitool/index.html', target='_blank')
+        i.fa.fa-laptop
+        | API Console
+      a.btn.btn-primary(href='http://developer.nytimes.com/docs', target='_blank')
+        i.fa.fa-code-fork
+        | API Endpoints
+
+  h4 Pokemon Go Stories
+  table.table.table-striped.table-bordered
+    thead
+      tr
+        th Title
+        th Subtitle
+        th.hidden-xs Description
+        th Link
+        th Thumbnail
+    tbody
+      for story in stories
+        tr
+          td= story.title
+          td= story.subtitle
+          td= story.description
+          td
+            if story.link
+              a(href=story.link) Read More
+          td
+            if story.thumbnailImage
+              img(src=story.thumbnailImage.link)

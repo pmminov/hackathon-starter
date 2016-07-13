@@ -1,0 +1,12 @@
+@import '../topic-compact';
+@import '../card';
+
+@keyframes enter {
+  from { opacity: 0; }
+}
+
+.feed {
+  & > * {
+    animation: enter .5s ease-in;
+  }
+}

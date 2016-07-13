@@ -1,0 +1,35 @@
+@keyframes enterprogress {
+  from { transform: scaleX(0); }
+}
+
+.topic-compact {
+  height: 5em;
+  position: relative;
+  & .title {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    & > * {
+      margin: 0 auto;
+    }
+  }
+  & progress[value] {
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    transform-origin: left;
+    animation: enterprogress .5s ease-out;
+    &::-webkit-progress-bar {
+      background-color: transparent;
+    }
+    &::-webkit-progress-value {
+      background-color: lightblue;
+    }
+  }
+  & + & {
+    border-top: 1px solid white;
+  }
+}

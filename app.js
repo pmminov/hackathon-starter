@@ -132,7 +132,7 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
  */
 app.get('/feed', feedController.index)
 app.get('/topic', topicController.index)
-app.get('/topic/:name', topicController.topic)
+app.get('/topic/:topic', topicController.topic)
 /**
  * API examples routes.
  */

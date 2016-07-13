@@ -1,7 +1,7 @@
 include ../public/components/app/template
 include ../public/components/topic-compact/template
 
-+app()
++app({header:{heading: title}})
   +topic-compact({value:33, title: 'Gay Marriage'})
   +topic-compact({value:10, title: 'Brexit'})
   +topic-compact({value:25, title: 'Lamps'})

@@ -1,5 +1,5 @@
 include ../public/components/app/template
 include ../public/components/topic-compact/template
 
-+app()
++app({header:{topic: true, heading: title}})
   +topic-compact({value:33, title: 'Gay Marriage'})

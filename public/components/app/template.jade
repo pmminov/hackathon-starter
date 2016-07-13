@@ -1,7 +1,7 @@
 include ../header/template
 include ../feed/template
 
-mixin app()
+mixin app(props)
   doctype html
   html
     head
@@ -13,7 +13,7 @@ mixin app()
       link(rel='shortcut icon', href='/favicon.png')
       link(rel='stylesheet', href='/bundle/bundle.css')
     body
-      +header({heading: title})
+      +header(props.header)
       +feed()
         block
       script(src='/bundle/bundle.js')

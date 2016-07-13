@@ -1,4 +1,5 @@
 @import '../topic-compact';
+@import '../title-section';
 @import '../card';
 
 @keyframes enter {

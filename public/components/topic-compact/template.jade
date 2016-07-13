@@ -1,6 +1,6 @@
 mixin topic-compact(props)
-  .topic-compact
+  .topic-compact&attributes(attributes)
     .title
       a(href=props.href ? props.href : undefined)
-        h3=props.title +' (' + props.value + '%)'
+        h3=props.title
     progress(value=props.value max=100)

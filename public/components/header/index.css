@@ -1,12 +1,15 @@
+@import '../burger';
+
 .header {
   display: flex;
-  border-bottom: solid 1px black;
-  background-color: grey;
+  background-color: #ff4643;
+  color: #fff;
   & .heading {
     display: flex;
     align-items: center;
     & > * {
       margin: 0 auto;
+      text-transform: uppercase;
     }
   }
   & > * {
@@ -18,5 +21,4 @@
   flex: 0;
   height: 5em;
   flex-basis: 5em;
-  border: solid 1px black;
 }

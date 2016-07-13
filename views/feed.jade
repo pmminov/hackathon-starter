@@ -1,8 +1,10 @@
 include ../public/components/app/template
+include ../public/components/feed/template
 include ../public/components/topic-compact/template
 
-+app({header:{heading: title}})
-  +topic-compact({value:33, title: 'Gay Marriage', href: '/topic/Gay%20Marriage'})
-  +topic-compact({value:10, title: 'Brexit', href: '/topic/Brexit'})
-  +topic-compact({value:25, title: 'Lamps', href: '/topic/Lamps'})
-  +topic-compact({value:95, title: 'Pokemon Go', href: '/topic/Pokemon%Go'})
++app({header: {}})
+  +feed({titleSection: {title:'Trending topics:'}})
+    +topic-compact({value:33, title: 'Gay Marriage', href: '/topic/Gay%20Marriage'}).blue
+    +topic-compact({value:10, title: 'Brexit', href: '/topic/Brexit'}).green
+    +topic-compact({value:25, title: 'Lamps', href: '/topic/Lamps'}).orange
+    +topic-compact({value:95, title: 'Pokemon Go', href: '/topic/Pokemon%Go'}).yellow

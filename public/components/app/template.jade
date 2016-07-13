@@ -15,8 +15,7 @@ mixin app(props)
     body
       if props.header
         +header(props.header)
-      +feed()
-        block
+      block
       script(src='/bundle/bundle.js')
 
       // Google Analytics: change UA-XXXXX-X to be your site's ID

@@ -96,4 +96,3 @@ exports.index = (req, res) => {
     }, this)
   }
 }
-

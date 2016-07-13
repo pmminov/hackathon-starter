@@ -2,7 +2,7 @@ include ../public/components/app/template
 include ../public/components/feed/template
 include ../public/components/topic-compact/template
 
-+app({})
++app({header:{}})
   +feed({titleSection: {title:'Trending topics:'}})
     +topic-compact({value:33, title: 'Gay Marriage', href: '/topic/Gay%20Marriage'}).blue
     +topic-compact({value:10, title: 'Brexit', href: '/topic/Brexit'}).green

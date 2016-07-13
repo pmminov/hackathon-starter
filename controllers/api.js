@@ -43,6 +43,13 @@ exports.getApi = (req, res) => {
  */
 exports.getNewsCorpAustralia = (req, res, next) => {
   // http://cdn.newsapi.com.au/content/v2/?api_key=dvae65bt88b6n8gpttv4ervt&query=description:pokemon%20AND%20description:go%20AND%20contentType:NEWS_STORY
+  
+  //gay marriage
+  //brexit
+  //climate change
+  //iphone 7
+  //doping
+  
   const query = {
     'query': 'description:pokemon AND description:go AND contentType:NEWS_STORY',
     'api_key': process.env.NEWSCORPAU_KEY

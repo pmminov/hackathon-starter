@@ -37,6 +37,28 @@ exports.getApi = (req, res) => {
 };
 
 /**
+ * GET /api/nyt
+ * New York Times API example.
+ */
+exports.getNewsCorpAustralia = (req, res, next) => {
+  // http://cdn.newsapi.com.au/content/v2/?api_key=dvae65bt88b6n8gpttv4ervt&query=description:pokemon%20AND%20description:go%20AND%20contentType:NEWS_STORY
+  const query = {
+    'query': 'description:pokemon AND description:go AND contentType:NEWS_STORY',
+    'api_key': process.env.NEWSCORPAU_KEY
+  };
+  request.get({ url: 'http://cdn.newsapi.com.au/content/v2/', qs: query }, (err, request, body) => {
+    if (request.statusCode === 403) {
+      return next(new Error('Invalid API Key'));
+    }
+    const stories = JSON.parse(body).results;
+    res.render('api/newscorpau', {
+      title: 'News Corp API',
+      stories
+    });
+  });
+};
+
+/**
  * GET /api/foursquare
  * Foursquare API example.
  */

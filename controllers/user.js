@@ -13,7 +13,8 @@ exports.getLogin = (req, res) => {
     return res.redirect('/');
   }
   res.render('account/login', {
-    title: 'Login'
+    title: 'Login',
+    nav: true
   });
 };
 

@@ -16,7 +16,7 @@
 
 .button {
   flex: 0;
-  height: 3em;
-  flex-basis: 3em;
+  height: 5em;
+  flex-basis: 5em;
   border: solid 1px black;
 }

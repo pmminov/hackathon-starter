@@ -2,10 +2,7 @@ include ../topic-compact/template
 
 mixin header(props)
   .header
-    if props.topic
-      +topic-compact({value:33, title: 'Gay Marriage'})
-    .overlay
-      a.button(href="#")
-      .heading
-        h2=props.heading
-      a.button(href="#")
+    a.button(href="#")
+    .heading
+      h2=props.heading
+    a.button(href="#")

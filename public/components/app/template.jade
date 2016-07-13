@@ -13,7 +13,8 @@ mixin app(props)
       link(rel='shortcut icon', href='/favicon.png')
       link(rel='stylesheet', href='/bundle/bundle.css')
     body
-      +header(props.header)
+      if props.header
+        +header(props.header)
       +feed()
         block
       script(src='/bundle/bundle.js')

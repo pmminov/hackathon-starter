@@ -7,3 +7,9 @@ exports.index = (req, res) => {
     title: 'Topic'
   })
 }
+
+exports.topic = (req, res) => {
+  res.render('topic', {
+    title: req.params.name
+  })
+}

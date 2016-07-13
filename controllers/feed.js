@@ -1,4 +1,5 @@
 const request = require('request')
+const async = require('async')
 const Story = require('../models/Story')
 const Topic = require('../models/Topic')
 
@@ -7,7 +8,38 @@ const Topic = require('../models/Topic')
  * Feed page.
  */
 exports.index = (req, res) => {
-  var topics = [ 'gay marriage', 'brexit', 'climate change', 'iphone 7', 'doping' ]
+  var topic1 = {
+    title: 'gay marriage',
+    perspectives: ['Pro equality', 'Anti equality', 'Balanced', 'Other'],
+    color: 'blue'
+  }
+  var topic2 = {
+    title: 'doping',
+    perspectives: ['Pro equality', 'Anti equality', 'Balanced', 'Other'],
+    color: 'green'
+  }
+  var topic3 = {
+    title: 'pokemon go',
+    perspectives: ['Pro equality', 'Anti equality', 'Balanced', 'Other'],
+    color: 'orange'
+  }
+  var topic4 = {
+    title: 'brexit',
+    perspectives: ['Pro equality', 'Anti equality', 'Balanced', 'Other'],
+    color: 'yellow'
+  }
+  var topic5 = {
+    title: 'global warming',
+    perspectives: ['Pro equality', 'Anti equality', 'Balanced', 'Other'],
+    color: 'blue'
+  }
+  var topic6 = {
+    title: 'lamps',
+    perspectives: ['Pro equality', 'Anti equality', 'Balanced', 'Other'],
+    color: 'blue'
+  }
+  var topics = [ topic1, topic2, topic3, topic4, topic5, topic6 ]
+
   saveTopics(topics)
   saveStories(topics)
 
@@ -16,23 +48,22 @@ exports.index = (req, res) => {
   })
 
   function saveTopics (topics) {
-    topics.forEach(function (topic) {
-      const item = new Topic({title: topic})
-      item.save()
-    }, this)
+    async.eachSeries(topics, function (topic, next) {
+      Topic.findOne({ title: topic.title }, (err, existingTopic) => {
+        if (err) return console.log(err)
+        if (existingTopic) return
+        var obj = new Topic(topic)
+        obj.save(next)
+      })
+    }, function (err) {
+      if (err) return console.log(err)
+    })
   }
 
   function saveStories (topics) {
-    // http://cdn.newsapi.com.au/content/v2/?api_key=dvae65bt88b6n8gpttv4ervt&query=description:pokemon%20AND%20description:go%20AND%20contentType:NEWS_STORY
-    
-    //gay marriage
-    //brexit
-    //climate change
-    //iphone 7
-    //doping
     topics.forEach(function (topic) {
       const query = {
-        'query': 'description:' + topic + ' contentType:NEWS_STORY',
+        'query': 'description:' + topic.title + ' contentType:NEWS_STORY',
         'api_key': process.env.NEWSCORPAU_KEY
       }
       request.get({ url: 'http://cdn.newsapi.com.au/content/v2/', qs: query }, (err, request, body) => {
@@ -53,7 +84,7 @@ exports.index = (req, res) => {
               thumbnailImage: {
                 link: story.thumbnailImage ? story.thumbnailImage.link : undefined
               },
-              topic: topic
+              topic: topic.title
             })
 
             item.save((err) => {

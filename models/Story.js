@@ -10,7 +10,8 @@ const userSchema = new mongoose.Schema({
   thumbnailImage: {
     link: { type: String }
   },
-  topic: { type: String }
+  topic: { type: String },
+  perspective: { type: String }
 }, { timestamps: true })
 
 const Story = mongoose.model('Story', userSchema)

@@ -5,7 +5,7 @@ const Topic = require('../models/Topic')
 exports.topic = (req, res) => {
   async.waterfall([
     function (callback) {
-      Topic.findOne({ title: req.params.topic.toLowerCase() }, (err, topic) => {
+      Topic.findOne({ title: req.params.topic }, (err, topic) => {
         if (err) return callback(err)
         callback(null, topic)
       })

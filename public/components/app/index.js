@@ -8,6 +8,8 @@ domready(function () {
   let topics = document.querySelectorAll('.topic-compact')
   for (let topic of topics) {
     topic.handler = new TopicCompact(topic)
-    topic.handler.increaseScore(10)
+    if (topic.classList.contains('increaseScore')) {
+      topic.handler.increaseScore(10)
+    }
   }
 })

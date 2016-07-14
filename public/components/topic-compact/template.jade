@@ -2,7 +2,7 @@ include ../profile-picture/template
 
 mixin topic-compact(props)
 
-  .topic-compact(class=[props.colour, props.expanded ? 'expanded' : undefined])&attributes(attributes)
+  .topic-compact(class=[props.colour, props.expanded ? 'expanded' : undefined, props.increaseScore ? 'increaseScore' : undefined])&attributes(attributes)
     span.marker(style={left: props.value + '%'})
     if block
       .inner

@@ -4,7 +4,6 @@ export default class TopicCompact {
     this.progress = this.element.querySelector('span.progress')
     this.marker = this.element.querySelector('span.marker')
     this.score = 100 - parseInt(this.progress.style.getPropertyValue('right'))
-    console.log(this.element)
   }
 
   increaseScore (inc) {

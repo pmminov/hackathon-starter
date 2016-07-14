@@ -1,0 +1,9 @@
+include ../public/components/app/template
+include ../public/components/topic-compact/template
+include ../public/components/card/template
+include ../public/components/title-section/template
+
++app({header:{}})
+  +feed({})
+    +topic-compact({value: 33, title: title, colour: topic.color, increaseScore: true})
+    +card(card)

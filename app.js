@@ -37,6 +37,7 @@ const contactController = require('./controllers/contact')
 const homeController = require('./controllers/home')
 const feedController = require('./controllers/feed')
 const topicController = require('./controllers/topic')
+const articleController = require('./controllers/article')
 
 /**
  * API keys and Passport configuration.    each card in cards
@@ -135,6 +136,7 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 app.get('/', homeController.index)
 app.get('/feed/:topic', feedController.topic)
 app.get('/topic/:topic', topicController.profile)
+app.get('/article/:article', articleController.index)
 
 /**
  * API examples routes.

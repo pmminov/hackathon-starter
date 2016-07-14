@@ -1,11 +1,11 @@
-const Story = require('../models/Story')
+const Topic = require('../models/Topic')
 
 exports.profile = (req, res) => {
-  const topic = req.params.topic
-  Story.find({ topic: topic }, (err, stories) => {
+  const title = req.params.topic
+  Topic.findOne({ title: title }, (err, topic) => {
     if (err) return console.log(err)
     res.render('topic', {
-      title: topic,
+      title: topic.title,
       expanded: true,
       breakdown: '4/20',
       topic

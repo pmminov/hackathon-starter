@@ -1,14 +1,20 @@
+include ../profile-picture/template
+
 mixin topic-compact(props)
-  .topic-compact(class=[props.colour, props.expanded ? 'expanded' : undefined])&attributes(attributes)
+
+  .topic-compact(class=[props.colour, props.expanded ? 'expanded' : undefined, props.increaseScore ? 'increaseScore' : undefined])&attributes(attributes)
     span.marker(style={left: props.value + '%'})
     if block
       .inner
         h3=props.title
         block
     else
-      a(href=props.href ? props.href : undefined)
-        .title
-            h3=props.title
-          if props.breakdown
-            span.breakdown=props.breakdown
-      span.progress(style={right: 100 - props.value + '%'})
+      .title
+        a(href=props.href ? props.href : undefined)
+          if props.profile
+            +profile-picture(props.profile)
+          h3=props.title
+        if props.breakdown
+          span.breakdown
+            h3=props.breakdown
+    span.progress(style={right: 100 - props.value + '%'})

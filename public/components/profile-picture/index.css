@@ -1,0 +1,7 @@
+.profile-picture {
+  vertical-align: middle;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  background-color: color(black alpha(10%));
+}

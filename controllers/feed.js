@@ -83,7 +83,7 @@ exports.index = (req, res) => {
                 description: story.description,
                 link: story.link,
                 thumbnailImage: {
-                  link: story.thumbnailImage ? story.thumbnailImage.link : undefined
+                  link: story.thumbnailImage ? story.thumbnailImage.id.link + '?width=650' : undefined
                 },
                 topic: topic.title,
                 color: topic.color,

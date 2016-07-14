@@ -1,4 +1,12 @@
 mixin card(props)
-  .card
-    h3=props.title
-    p=props.text
+  .card(class=props.colour)
+    a.link(href=props.href)
+      if props.src
+        figure(style=`background-image: url(${props.src})`)
+          img(src=props.src, alt='Thumbnail')
+    .content
+      .perspective
+        span.name=props.perspective.name
+        span.score=props.perspective.score
+      h3(href=props.href)=props.title
+      p=props.text

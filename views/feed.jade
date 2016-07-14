@@ -1,14 +1,9 @@
 include ../public/components/app/template
+include ../public/components/feed/template
 include ../public/components/topic-compact/template
 
 +app({header:{heading: title}})
-  each topic in topics
-    +topic-compact({value: topic.value, title: topic.title, href: '/topic/' + topic.title})
-  //
-    +topic-compact({value:10, title: 'Brexit', href: '/topic/Brexit'})
-    +topic-compact({value:25, title: 'Lamps', href: '/topic/Lamps'})
-    +topic-compact({value:95, title: 'Pokemon Go', href: '/topic/Pokemon%20Go'})
-    +topic-compact({value:62, title: 'Climate Change', href: '/topic/Climate%20Change'})
-    +topic-compact({value:32, title: 'Boaty McBoatface', href: '/topic/Boaty'})
-    +topic-compact({value:2, title: 'Pauline Hanson', href: '/topic/Pauline%20Hanson'})
-    +topic-compact({value:78, title: 'This Chair', href: '/topic/Chair'})
+  +feed({titleSection: {title:'Trending topics:'}})
+    each topic in topics
+      +topic-compact({value: topic.value, title: topic.title, href: '/topic/' + topic.title, colour: topic.color})
+

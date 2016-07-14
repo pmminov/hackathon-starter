@@ -2,7 +2,8 @@ include ../public/components/app/template
 include ../public/components/topic-compact/template
 include ../public/components/card/template
 
-+app({})
-  +topic-compact({value:33, title: title})
-  each card in cards
-    +card(card)
++app({header:{}})
+  +feed({})
+    +topic-compact({value:33, title: title, colour: topic.color})
+    each card in cards
+      +card(card)

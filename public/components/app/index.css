@@ -1,6 +1,36 @@
 @import '../header';
 @import '../feed';
 
+@font-face {
+  font-family: Avenir;
+  src: url('/components/app/fonts/Avenir-Black.woff') format('woff');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url('/components/app/fonts/Avenir-Medium.woff') format('woff');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url('/components/app/fonts/Avenir-Book.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url('/components/app/fonts/Avenir-Roman.woff') format('woff');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url('/components/app/fonts/Avenir-Light.woff') format('woff');
+  font-weight: 100;
+}
+
 html {
   text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -10,7 +40,7 @@ html {
 
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: Avenir;
   line-height: 1;
 }
 

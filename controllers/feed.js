@@ -86,6 +86,7 @@ exports.index = (req, res) => {
                   link: story.thumbnailImage ? story.thumbnailImage.link : undefined
                 },
                 topic: topic.title,
+                color: topic.color,
                 perspective: topic.perspectives[Math.floor(Math.random() * topic.perspectives.length)]
               })
               item.save(next)
@@ -103,6 +104,7 @@ exports.index = (req, res) => {
   ],
   function (err, results) {
     if (err) console.log(err)
+
     res.render('feed', {
       title: 'Feed',
       topics: topics

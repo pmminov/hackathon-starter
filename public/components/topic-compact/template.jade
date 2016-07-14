@@ -1,6 +1,7 @@
 mixin topic-compact(props)
-  .topic-compact
+  .topic-compact(class=props.colour)&attributes(attributes)
+    span.marker(style={left: props.value + '%'})
     .title
       a(href=props.href ? props.href : undefined)
-        h3=props.title +' (' + props.value + '%)'
-    progress(value=props.value max=100)
+        h3=props.title
+    span.progress(style={right: 100 - props.value + '%'})

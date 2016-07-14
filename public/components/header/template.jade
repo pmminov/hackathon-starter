@@ -1,8 +1,9 @@
 include ../topic-compact/template
+include ../burger/template
 
 mixin header(props)
   .header
-    a.button(href="#")
+    +burger()
     .heading
       h2=props.heading
     a.button(href="#")

@@ -1,9 +1,10 @@
 @keyframes enterprogress {
   from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 .topic-compact {
-  height: 5em;
+  height: 6em;
   position: relative;
   & .title {
     position: absolute;
@@ -12,24 +13,64 @@
     display: flex;
     align-items: center;
     z-index: 100;
-    & > * {
-      margin: 0 auto;
+    padding: 0 1.5em;
+    box-sizing: border-box;
+    & a {
+      text-decoration: none;
+    }
+    & h3 {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 200;
+      font-size: 140%;
     }
   }
-  & progress[value] {
-    appearance: none;
+  & .marker {
+    border-left: 2px dashed white;
+    position: absolute;
+    z-index: 100;
+    height: 100%;
+    display: none;
+    &.show {
+      display: block;
+    }
+  }
+  background-color: #e4e4e4;
+  & span.progress {
+    position: absolute;
     width: 100%;
     height: 100%;
+    transform: scaleX(0);
     transform-origin: left;
-    animation: enterprogress .5s ease-out;
-    &::-webkit-progress-bar {
-      background-color: transparent;
-    }
-    &::-webkit-progress-value {
-      background-color: lightblue;
+    animation: enterprogress 1s ease-out backwards;
+    animation-fill-mode: forwards;
+    animation-delay: .5s;
+    background-color: #bababa;
+    transition: right .5s ease-out;
+    animation-delay: right 1.5s;
+  }
+  &.blue {
+    background-color: #0eb9e4;
+    & span.progress {
+      background-color: #0f9fba;
     }
   }
-  & + & {
-    border-top: 1px solid white;
+  &.green {
+    background-color: #24eaad;
+    & span.progress {
+      background-color: #23c88e;
+    }
+  }
+  &.orange {
+    background-color: #eb451b;
+    & span.progress {
+      background-color: #e73b17;
+    }
+  }
+  &.yellow {
+    background-color: #ffd203;
+    & span.progress {
+      background-color: #fab301;
+    }
   }
 }

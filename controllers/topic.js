@@ -31,14 +31,21 @@ exports.topic = (req, res) => {
     const cards = []
     stories.forEach(function (story) {
       var card = {
+        colour: topic.color,
         title: story.title,
         text: story.description,
-        perspective: story.perspective
+        src: story.thumbnailImage.link,
+        href: story.link,
+        perspective: {
+          name: story.perspective,
+          score: '4/20'
+        }
       }
       cards.push(card)
     }, this)
     res.render('topic', {
-      title: 'Topic',
+      title: topic.title,
+      topic,
       cards
     })
   })

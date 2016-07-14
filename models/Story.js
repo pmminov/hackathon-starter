@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
     link: { type: String }
   },
   topic: { type: String },
+  color: { type: String },
   perspective: { type: String }
 }, { timestamps: true })
 

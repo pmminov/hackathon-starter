@@ -23,6 +23,9 @@ module.exports = {
     }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract('style', 'css?-autoprefixer!postcss')
+    }, {
+      test: /\.(svg|woff2|woff)$/,
+      loader: 'url-loader'
     }]
   },
   postcss: function (webpack) {

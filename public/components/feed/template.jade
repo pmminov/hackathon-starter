@@ -1,3 +1,7 @@
+include ../title-section/template
+
 mixin feed(props)
   .feed
+    if props.titleSection
+      +title-section(props.titleSection)
     block

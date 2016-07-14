@@ -1,0 +1,11 @@
+.title-section {
+  padding: 0 1.5em;
+  height: 5em;
+  display: flex;
+  align-items: center;
+  & h1 {
+    font-size: 160%;
+    color: #86878b;
+    font-weight: 300;
+  }
+}

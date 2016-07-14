@@ -4,6 +4,6 @@ include ../public/components/card/template
 
 +app({header:{}})
   +feed({})
-    +topic-compact({value:33, title: title, colour: topic.color})
+    +topic-compact({value:33, title: title, colour: topic.color, href: '/topic/' + topic.title})
     each card in cards
       +card(card)

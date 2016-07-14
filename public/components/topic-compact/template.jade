@@ -6,9 +6,9 @@ mixin topic-compact(props)
         h3=props.title
         block
     else
-      .title
-        a(href=props.href ? props.href : undefined)
-          h3=props.title
-        if props.breakdown
-          span.breakdown=props.breakdown
-    span.progress(style={right: 100 - props.value + '%'})
+      a(href=props.href ? props.href : undefined)
+        .title
+            h3=props.title
+          if props.breakdown
+            span.breakdown=props.breakdown
+      span.progress(style={right: 100 - props.value + '%'})

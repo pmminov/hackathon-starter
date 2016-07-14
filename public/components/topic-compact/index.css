@@ -18,6 +18,9 @@
     & a {
       text-decoration: none;
     }
+    & :first-letter {
+      text-transform: uppercase;
+    }
   }
   & h3 {
     text-decoration: none;

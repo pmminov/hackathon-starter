@@ -9,8 +9,8 @@ mixin topic-compact(props)
         h3=props.title
         block
     else
-      .title
-        a(href=props.href ? props.href : undefined)
+      a(href=props.href ? props.href : undefined)
+        .title
           if props.profile
             +profile-picture(props.profile)
           h3=props.title

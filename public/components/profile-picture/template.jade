@@ -1,0 +1,3 @@
+mixin profile-picture(props)
+  - props = props || {}
+  img.profile-picture(src=props.image ? props.image : '/components/profile-picture/default-profile-picture.svg', alt=(props.name ? props.name + '’s' : 'Default') + ' profile picture')

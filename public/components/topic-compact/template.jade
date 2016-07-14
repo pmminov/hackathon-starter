@@ -1,4 +1,7 @@
+include ../profile-picture/template
+
 mixin topic-compact(props)
+
   .topic-compact(class=[props.colour, props.expanded ? 'expanded' : undefined])&attributes(attributes)
     span.marker(style={left: props.value + '%'})
     if block
@@ -8,7 +11,10 @@ mixin topic-compact(props)
     else
       .title
         a(href=props.href ? props.href : undefined)
+          if props.profile
+            +profile-picture(props.profile)
           h3=props.title
         if props.breakdown
-          span.breakdown=props.breakdown
+          span.breakdown
+            h3=props.breakdown
     span.progress(style={right: 100 - props.value + '%'})

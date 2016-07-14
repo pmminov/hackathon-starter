@@ -1,13 +1,22 @@
 include ../public/components/app/template
 include ../public/components/topic-compact/template
 include ../public/components/card/template
+include ../public/components/title-section/template
 
 +app({header:{}})
   +feed({})
     +topic-compact({value:33, title: title, colour: topic.color, expanded: expanded})
       ul
         li 5 New Articles
-        li 3/6 Perspectives
+        li 3 / 6 Perspectives
         li Discussion rating: Active
-        li Your rating: 10/10 knows things
-    +topic-compact({value:33, title: title, colour: topic.color, breakdown: '4/20'})
+        li Your Rating
+    +title-section({title: 'Breakdown:'})
+    +topic-compact({value:33, title: 'Pro Gay Marriage', colour: topic.color, breakdown: '4/20'})
+    +topic-compact({value:33, title: 'Opposed to Gay Marriage', colour: topic.color, breakdown: '7/12'})
+    +topic-compact({value:33, title: 'Other', colour: topic.color, breakdown: '1/20'})
+    +title-section({title: 'Friends:'})
+    +topic-compact({value:33, title: 'You', colour: topic.color, profile: {}})(style='border-bottom: 2px solid white')
+    +topic-compact({value:33, title: 'Andy Roberts', colour: topic.color, profile: {}})
+    +topic-compact({value:33, title: 'Matt White', colour: topic.color, profile: {}})
+    +topic-compact({value:33, title: 'Betsan Jones', colour: topic.color, profile: {}})

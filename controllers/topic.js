@@ -32,7 +32,8 @@ exports.topic = (req, res) => {
     stories.forEach(function (story) {
       var card = {
         title: story.title,
-        text: story.description
+        text: story.description,
+        perspective: story.perspective
       }
       cards.push(card)
     }, this)

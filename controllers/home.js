@@ -71,7 +71,8 @@ exports.index = (req, res) => {
       async.eachSeries(topics, function (topic, next) {
         const query = {
           'query': 'description:' + topic.title + ' contentType:NEWS_STORY',
-          'api_key': process.env.NEWSCORPAU_KEY
+          'api_key': process.env.NEWSCORPAU_KEY,
+          'includeBodies': true
         }
         request.get({ url: 'http://cdn.newsapi.com.au/content/v2/', qs: query }, (err, request, body) => {
           if (err) {
@@ -88,6 +89,7 @@ exports.index = (req, res) => {
                 subtitle: story.subtitle,
                 description: story.description,
                 link: story.link,
+                body: story.body,
                 thumbnailImage: {
                   link: story.thumbnailImage.id.link + '?width=650'
                 },

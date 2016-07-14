@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
   title: { type: String, unique: true },
   subtitle: { type: String },
   description: { type: String },
+  body: { type: String },
   link: { type: String },
   thumbnailImage: {
     link: { type: String }

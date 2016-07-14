@@ -8,5 +8,6 @@ mixin card(props)
       .perspective
         span.name=props.perspective.name
         span.score=props.perspective.score
-      h3(href=props.href)=props.title
+      a(href=props.href)
+        h3=props.title
       p=props.text

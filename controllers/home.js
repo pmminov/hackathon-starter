@@ -10,40 +10,40 @@ const UserLog = require('../models/UserLog')
  */
 exports.index = (req, res) => {
   var topic1 = {
-    title: 'gay marriage',
+    title: 'Gay Marriage',
     perspectives: ['Pro equality', 'Anti equality', 'Balanced', 'Other'],
     color: 'blue',
     value: 10
   }
   var topic2 = {
-    title: 'doping',
-    perspectives: ['One', 'Two', 'Three', 'Other'],
-    color: 'green',
-    value: 30
-  }
-  var topic3 = {
-    title: 'pokemon go',
-    perspectives: ['Four', 'Five', 'Six', 'Other'],
-    color: 'orange',
-    value: 80
-  }
-  var topic4 = {
-    title: 'brexit',
-    perspectives: ['Seven', 'Eight', 'Nine', 'Other'],
+    title: 'Brexit',
+    perspectives: ['Remain', 'Stay', 'Inmmigration', 'Other'],
     color: 'yellow',
     value: 35
   }
+  var topic3 = {
+    title: 'Renewable Energy',
+    perspectives: ['Solar', 'Coal', 'Nuclear', 'Other'],
+    color: 'orange',
+    value: 62
+  }
+  var topic4 = {
+    title: 'Doping',
+    perspectives: ['Russia', 'Australia', 'USA', 'Antartic'],
+    color: 'green',
+    value: 30
+  }
   var topic5 = {
-    title: 'global warming',
-    perspectives: ['Ten', 'Eleven', 'Twelve', 'Other'],
-    color: 'blue',
-    value: 12
+    title: 'Pokemon Go',
+    perspectives: ['Safety', 'Fun', 'History', 'WTF', 'Other'],
+    color: 'orange',
+    value: 80
   }
   var topic6 = {
-    title: 'lamps',
-    perspectives: ['Pro equality', 'Anti equality', 'Balanced', 'Other'],
-    color: 'blue',
-    value: 62
+    title: 'Global Warming',
+    perspectives: ['Science', 'Religion', 'Facts', 'Other'],
+    color: 'yellow',
+    value: 12
   }
   var topics = [ topic1, topic2, topic3, topic4, topic5, topic6 ]
 
@@ -71,7 +71,8 @@ exports.index = (req, res) => {
       async.eachSeries(topics, function (topic, next) {
         const query = {
           'query': 'description:' + topic.title + ' contentType:NEWS_STORY',
-          'api_key': process.env.NEWSCORPAU_KEY
+          'api_key': process.env.NEWSCORPAU_KEY,
+          'includeBodies': true
         }
         request.get({ url: 'http://cdn.newsapi.com.au/content/v2/', qs: query }, (err, request, body) => {
           if (err) {
@@ -88,6 +89,7 @@ exports.index = (req, res) => {
                 subtitle: story.subtitle,
                 description: story.description,
                 link: story.link,
+                body: story.body,
                 thumbnailImage: {
                   link: story.thumbnailImage.id.link + '?width=650'
                 },

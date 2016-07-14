@@ -82,13 +82,14 @@ exports.index = (req, res) => {
             Story.findOne({ title: story.title }, (err, existingStory) => {
               if (err) { return callback(err) }
               if (existingStory) { return next() }
+              if (!story.thumbnailImage) { return next() }
               const item = new Story({
                 title: story.title,
                 subtitle: story.subtitle,
                 description: story.description,
                 link: story.link,
                 thumbnailImage: {
-                  link: story.thumbnailImage ? story.thumbnailImage.id.link + '?width=650' : undefined
+                  link: story.thumbnailImage.id.link + '?width=650'
                 },
                 topic: topic.title,
                 color: topic.color,

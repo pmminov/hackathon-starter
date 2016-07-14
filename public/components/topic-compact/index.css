@@ -25,9 +25,19 @@
       font-size: 140%;
     }
   }
+  & .marker {
+    border-left: 2px dashed white;
+    position: absolute;
+    z-index: 100;
+    height: 100%;
+    display: none;
+    &.show {
+      display: block;
+    }
+  }
   background-color: #e4e4e4;
-  & progress[value] {
-    appearance: none;
+  & span.progress {
+    position: absolute;
     width: 100%;
     height: 100%;
     transform: scaleX(0);
@@ -35,43 +45,32 @@
     animation: enterprogress 1s ease-out backwards;
     animation-fill-mode: forwards;
     animation-delay: .5s;
-    &::-webkit-progress-bar {
-      background-color: transparent;
-    }
-    &::-webkit-progress-value {
-      background-color: #bababa;
-    }
+    background-color: #bababa;
+    transition: right .5s ease-out;
+    animation-delay: right 1.5s;
   }
   &.blue {
     background-color: #0eb9e4;
-    & progress[value] {
-      &::-webkit-progress-value {
-        background-color: #0f9fba;
-      }
+    & span.progress {
+      background-color: #0f9fba;
     }
   }
   &.green {
     background-color: #24eaad;
-    & progress[value] {
-      &::-webkit-progress-value {
-        background-color: #23c88e;
-      }
+    & span.progress {
+      background-color: #23c88e;
     }
   }
   &.orange {
     background-color: #eb451b;
-    & progress[value] {
-      &::-webkit-progress-value {
-        background-color: #e73b17;
-      }
+    & span.progress {
+      background-color: #e73b17;
     }
   }
   &.yellow {
     background-color: #ffd203;
-    & progress[value] {
-      &::-webkit-progress-value {
-        background-color: #fab301;
-      }
+    & span.progress {
+      background-color: #fab301;
     }
   }
 }

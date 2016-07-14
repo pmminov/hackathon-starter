@@ -2,7 +2,12 @@ import 'babel-polyfill'
 import 'dom4'
 import 'svgxuse'
 import domready from 'domready'
+import TopicCompact from '../topic-compact'
 
 domready(function () {
-  // Initialize the intro component
+  let topics = document.querySelectorAll('.topic-compact')
+  for (let topic of topics) {
+    topic.handler = new TopicCompact(topic)
+    topic.handler.increaseScore(10)
+  }
 })

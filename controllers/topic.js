@@ -32,7 +32,13 @@ exports.topic = (req, res) => {
     stories.forEach(function (story) {
       var card = {
         title: story.title,
-        text: story.description
+        text: story.description,
+        src: 'http://suplugins.com/podium/images/placeholder-02.jpg',
+        href: '#',
+        perspective: {
+          name: 'Pro Equality',
+          score: '4/20'
+        }
       }
       cards.push(card)
     }, this)

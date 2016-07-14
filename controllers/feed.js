@@ -9,36 +9,41 @@ const UserLog = require('../models/UserLog')
  * Feed page.
  */
 exports.index = (req, res) => {
-
   var topic1 = {
     title: 'gay marriage',
     perspectives: ['Pro equality', 'Anti equality', 'Balanced', 'Other'],
-    color: 'blue'
+    color: 'blue',
+    value: 10
   }
   var topic2 = {
     title: 'doping',
     perspectives: ['One', 'Two', 'Three', 'Other'],
-    color: 'green'
+    color: 'green',
+    value: 30
   }
   var topic3 = {
     title: 'pokemon go',
     perspectives: ['Four', 'Five', 'Six', 'Other'],
-    color: 'orange'
+    color: 'orange',
+    value: 80
   }
   var topic4 = {
     title: 'brexit',
     perspectives: ['Seven', 'Eight', 'Nine', 'Other'],
-    color: 'yellow'
+    color: 'yellow',
+    value: 35
   }
   var topic5 = {
     title: 'global warming',
     perspectives: ['Ten', 'Eleven', 'Twelve', 'Other'],
-    color: 'blue'
+    color: 'blue',
+    value: 12
   }
   var topic6 = {
     title: 'lamps',
     perspectives: ['Pro equality', 'Anti equality', 'Balanced', 'Other'],
-    color: 'blue'
+    color: 'blue',
+    value: 62
   }
   var topics = [ topic1, topic2, topic3, topic4, topic5, topic6 ]
 

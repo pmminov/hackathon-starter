@@ -21,4 +21,8 @@
   flex: 0;
   height: 5em;
   flex-basis: 5em;
+  & img {
+    margin: 1.2em;
+    box-sizing: border-box;
+  }
 }

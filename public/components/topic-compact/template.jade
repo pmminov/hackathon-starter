@@ -14,7 +14,7 @@ mixin topic-compact(props)
           if props.profile
             +profile-picture(props.profile)
           h3=props.title
-        if props.breakdown
-          span.breakdown
-            h3=props.breakdown
+          if props.breakdown
+            span.breakdown
+              h3=props.breakdown
     span.progress(style={right: 100 - props.value + '%'})

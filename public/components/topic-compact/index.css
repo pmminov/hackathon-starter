@@ -21,6 +21,10 @@
     & > * {
       flex: 1;
     }
+    & > img {
+      margin-right: .5em;
+      flex: 0;
+    }
     & a {
       text-decoration: none;
       & > * {
@@ -28,7 +32,7 @@
         margin-right: 1em;
       }
     }
-    & :first-letter {
+    & ::first-letter {
       text-transform: uppercase;
     }
   }

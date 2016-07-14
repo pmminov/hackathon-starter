@@ -18,12 +18,12 @@
     & a {
       text-decoration: none;
     }
-    & h3 {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 200;
-      font-size: 140%;
-    }
+  }
+  & h3 {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 200;
+    font-size: 140%;
   }
   & .marker {
     border-left: 2px dashed white;
@@ -49,6 +49,25 @@
     background-color: #bababa;
     transition: right .5s ease-out;
     animation-delay: right 1.5s;
+    top: 0;
+  }
+  & .inner {
+    position: relative;
+    z-index: 200;
+    padding: 2em;
+    overflow: overlay;
+  }
+  & ul {
+    list-style-type: none;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    & li {
+      margin-bottom: 1em;
+    }
+  }
+  &.expanded {
+    height: auto;
   }
   &.blue {
     background-color: #0eb9e4;

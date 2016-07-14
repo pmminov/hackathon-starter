@@ -1,9 +1,9 @@
 include ../public/components/app/template
-include ../public/components/feed/template
 include ../public/components/topic-compact/template
+include ../public/components/card/template
 
-+app({header:{heading: title}})
-  +feed({titleSection: {title:'Trending topics:'}})
-    each topic in topics
-      +topic-compact({value: topic.value, title: topic.title, href: '/topic/' + topic.title, colour: topic.color})
-
++app({header:{}})
+  +feed({})
+    +topic-compact({value:33, title: title, colour: topic.color})
+    each card in cards
+      +card(card)

@@ -27,7 +27,6 @@ dotenv.load({ path: '.env.example' })
 /**
  * Controllers (route handlers).
  */
-const homeController = require('./controllers/home')
 const userController = require('./controllers/user')
 const apiController = require('./controllers/api')
 const contactController = require('./controllers/contact')
@@ -35,6 +34,7 @@ const contactController = require('./controllers/contact')
 /**
  * Our Controllers
  */
+const homeController = require('./controllers/home')
 const feedController = require('./controllers/feed')
 const topicController = require('./controllers/topic')
 
@@ -132,10 +132,9 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
  * Our app routes.
  */
 //app.get('/feed', feedController.index)
-app.get('/', feedController.index)
-app.get('/topic', topicController.index)
-app.get('/topic/:topic', topicController.topic)
-app.get('/topic/:topic/profile', topicController.profile)
+app.get('/', homeController.index)
+app.get('/feed/:topic', feedController.topic)
+app.get('/topic/:topic', topicController.profile)
 
 /**
  * API examples routes.

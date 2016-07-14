@@ -4,6 +4,10 @@ include ../public/components/card/template
 
 +app({header:{}})
   +feed({})
-    +topic-compact({value:33, title: title, colour: topic.color})
-    each card in cards
-      +card(card)
+    +topic-compact({value:33, title: title, colour: topic.color, expanded: expanded})
+      ul
+        li 5 New Articles
+        li 3/6 Perspectives
+        li Discussion rating: Active
+        li Your rating: 10/10 knows things
+    +topic-compact({value:33, title: title, colour: topic.color, breakdown: '4/20'})
